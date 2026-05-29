@@ -1,0 +1,47 @@
+{
+  "name": "understory",
+  "version": "0.0.1",
+  "description": "My opinionated Astro starter. Pre-configured with the packages I reach for on every project.",
+  "keywords": [
+    "astro",
+    "astro-template",
+    "tailwindcss",
+    "starter",
+    "template"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/myles/understory.git"
+  },
+  "license": "MIT",
+  "author": "Myles Braithwaite <me@myles.garden> (https://myles.garden)",
+  "type": "module",
+  "scripts": {
+    "astro": "astro",
+    "build": "astro build",
+    "check": "astro check",
+    "dev": "astro dev",
+    "lint": "prettier . -c",
+    "lint:fix": "prettier . --write",
+    "prettier": "prettier . -c",
+    "prettier:write": "prettier . --write",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.0",
+    "astro": "^6.4.2",
+    "tailwindcss": "^4.3.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "prettier": "^3.8.3",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-astro-organize-imports": "^0.4.12",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "prettier-plugin-tailwindcss": "^0.8.0",
+    "typescript": "^6.0.3"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}

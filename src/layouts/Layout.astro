@@ -1,0 +1,47 @@
+---
+import { SITE_DESCRIPTION, SITE_TITLE } from "@/consts";
+
+type Props = {
+  siteTitle?: string;
+  siteDescription?: string;
+
+  pageTitle?: string;
+  pageDescription?: string;
+};
+const {
+  siteTitle = SITE_TITLE,
+  siteDescription = SITE_DESCRIPTION,
+  pageTitle,
+  pageDescription,
+} = Astro.props;
+
+const title = pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle;
+const description = pageDescription ?? siteDescription;
+
+// Remove trailing slash from pathname for canonical URL, if present.
+const canonicalPath = Astro.url.pathname.endsWith("/")
+  ? Astro.url.pathname.slice(0, -1)
+  : Astro.url.pathname;
+const canonicalUrl = new URL(canonicalPath, Astro.site).toString();
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <link rel="canonical" href={canonicalUrl} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+g
