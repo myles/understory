@@ -15,13 +15,13 @@ Items are ordered by priority. Pick up from the top.
 
 ## Batch 2 — Integrations & tooling
 
-- [ ] **`@astrojs/sitemap`** — add to package.json and `astro.config.ts`; used by all 5 projects; include trailing-slash serialization:
+- [x] **`@astrojs/sitemap`** — add to package.json and `astro.config.ts`; used by all 5 projects; include trailing-slash serialization:
   ```ts
   sitemap({ serialize(item) { item.url = item.url.replace(/\/$/, ''); return item; } })
   ```
-- [ ] **Vitest** — add `vitest` + `@vitest/coverage-v8` to devDeps; add `vitest.config.ts`; add `"test": "vitest run"` script; used by arcana, registry, grimoire; pattern is `src/lib/__tests__/*.test.ts`
-- [ ] **`Makefile`** — wrap common tasks (`make dev`, `make build`, `make test`, `make check`); 4 of 5 projects have one
-- [ ] **`date-fns`** — used by arcana, registry, myles-garden; worth including as a default dep
+- [x] **Vitest** — add `vitest` + `@vitest/coverage-v8` to devDeps; add `vitest.config.ts`; add `"test": "vitest run"` script; used by arcana, registry, grimoire; pattern is `src/lib/__tests__/*.test.ts`
+- [x] **`Makefile`** — wrap common tasks (`make dev`, `make build`, `make test`, `make check`); 4 of 5 projects have one
+- [x] **`date-fns`** — used by arcana, registry, myles-garden; worth including as a default dep
 
 ## Batch 3 — Layout.astro enhancements
 
