@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
+    "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.0",
     "astro": "^6.4.2",
     "date-fns": "^4.4.0",
@@ -43,6 +44,7 @@
     "prettier-plugin-astro-organize-imports": "^0.4.12",
     "prettier-plugin-organize-imports": "^4.3.0",
     "prettier-plugin-tailwindcss": "^0.8.0",
+    "schema-dts": "^2.0.0",
     "typescript": "^6.0.3",
     "vitest": "^4.1.8"
   },

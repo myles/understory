@@ -27,18 +27,18 @@ Items are ordered by priority. Pick up from the top.
 
 The registry's `Layout.astro` is the reference. Add to understory's `src/layouts/Layout.astro`:
 
-- [ ] **Open Graph tags** — `og:type`, `og:url`, `og:title`, `og:description`, `og:site_name`
-- [ ] **Twitter/X Card tags** — `twitter:card`, `twitter:url`, `twitter:title`, `twitter:description`
-- [ ] **`<link rel="manifest" href="/manifest.webmanifest">`**
-- [ ] **`<link rel="sitemap" href="/sitemap-index.xml">`**
-- [ ] **`<link rel="apple-touch-icon" href="/apple-touch-icon.png">`**
-- [ ] **`structuredData` prop** — render as `<script type="application/ld+json">` in `<head>`; add `schema-dts` to devDeps for types
-- [ ] **`hideHeader` / `hideFooter` props** — boolean props on Layout
-- [ ] **IndieAuth links** — `authorization_endpoint` + `token_endpoint` (can be commented-out stubs)
-- [ ] **`fediverse:creator` meta** — stub, user fills in their handle
-- [ ] **`<link rel="webmention">` stub**
-- [ ] **`rel="me"` link stubs**
-- [ ] **Analytics stub** — commented-out Tinylytics `<script>` with a TODO
+- [x] **Open Graph tags** — `og:type`, `og:url`, `og:title`, `og:description`, `og:site_name`
+- [x] **Twitter/X Card tags** — `twitter:card`, `twitter:url`, `twitter:title`, `twitter:description`
+- [x] **`<link rel="manifest" href="/site.webmanifest">`** — done in Batch 1
+- [x] **`<link rel="sitemap" href="/sitemap-index.xml">`**
+- [x] **`<link rel="apple-touch-icon" href="/apple-touch-icon.png">`** — done in Batch 1
+- [x] **`structuredData` prop** — render as `<script type="application/ld+json">` in `<head>`; add `schema-dts` to devDeps for types
+- [ ] **`hideHeader` / `hideFooter` props** — deferred to Batch 5 (no site header/footer components exist yet)
+- [x] **IndieAuth links** — `authorization_endpoint` + `token_endpoint` (commented-out stubs)
+- [x] **`fediverse:creator` meta** — commented-out stub
+- [x] **`<link rel="webmention">` stub** — commented-out stub
+- [x] **`rel="me"` link stubs** — commented-out stub
+- [x] **Analytics stub** — commented-out Tinylytics `<script>` with a TODO
 
 ## Batch 4 — Pages
 
