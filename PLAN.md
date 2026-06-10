@@ -42,8 +42,8 @@ The registry's `Layout.astro` is the reference. Add to understory's `src/layouts
 
 ## Batch 4 — Pages
 
-- [ ] **`src/pages/llms.txt.ts`** — plain-text site index for LLMs; registry and myles-garden both have one; returns `text/plain` with title, description, and content index
-- [ ] **`src/pages/feed.xml.ts`** stub — add `@astrojs/rss` to deps; clippings, grimoire, myles-garden all have it; can be a stubbed-out example pointing at a content collection
+- [x] **`src/pages/llms.txt.ts`** — plain-text site index for LLMs; registry and myles-garden both have one; returns `text/plain` with title, description, and content index
+- [x] **`src/pages/feed.xml.ts`** stub — add `@astrojs/rss` to deps; clippings, grimoire, myles-garden all have it; can be a stubbed-out example pointing at a content collection
 
 ## Batch 5 — Component scaffolding
 
