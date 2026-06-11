@@ -17,7 +17,12 @@ Items are ordered by priority. Pick up from the top.
 
 - [x] **`@astrojs/sitemap`** — add to package.json and `astro.config.ts`; used by all 5 projects; include trailing-slash serialization:
   ```ts
-  sitemap({ serialize(item) { item.url = item.url.replace(/\/$/, ''); return item; } })
+  sitemap({
+    serialize(item) {
+      item.url = item.url.replace(/\/$/, "");
+      return item;
+    },
+  });
   ```
 - [x] **Vitest** — add `vitest` + `@vitest/coverage-v8` to devDeps; add `vitest.config.ts`; add `"test": "vitest run"` script; used by arcana, registry, grimoire; pattern is `src/lib/__tests__/*.test.ts`
 - [x] **`Makefile`** — wrap common tasks (`make dev`, `make build`, `make test`, `make check`); 4 of 5 projects have one
@@ -54,15 +59,15 @@ The registry's `Layout.astro` is the reference. Add to understory's `src/layouts
 
 ## Packages summary
 
-| Package | Batch | Type |
-|---|---|---|
-| `@astrojs/sitemap` | 2 | dep |
-| `@astrojs/rss` | 4 | dep |
-| `date-fns` | 2 | dep |
-| `@tailwindcss/typography` | 3 | dep (arcana + registry use it for prose) |
-| `vitest` | 2 | devDep |
-| `@vitest/coverage-v8` | 2 | devDep |
-| `schema-dts` | 3 | devDep |
+| Package                   | Batch | Type                                     |
+| ------------------------- | ----- | ---------------------------------------- |
+| `@astrojs/sitemap`        | 2     | dep                                      |
+| `@astrojs/rss`            | 4     | dep                                      |
+| `date-fns`                | 2     | dep                                      |
+| `@tailwindcss/typography` | 3     | dep (arcana + registry use it for prose) |
+| `vitest`                  | 2     | devDep                                   |
+| `@vitest/coverage-v8`     | 2     | devDep                                   |
+| `schema-dts`              | 3     | devDep                                   |
 
 ## Skip (project-specific, not template material)
 

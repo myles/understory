@@ -3,14 +3,14 @@ import IconHeart from "@/components/icons/IconHeart.astro";
 import { SITE_TITLE } from "@/consts";
 
 export interface Props {
-    class?: string | string[];
+  class?: string | string[];
 }
 const { class: className } = Astro.props;
 ---
 
 <footer class:list={["site-footer", className]}>
-    <p class:list={["site-footer__copy"]}>
-        {SITE_TITLE} &mdash; Built with <IconHeart class:list={["inline-block"]} />
-        and <a href="https://astro.build">Astro</a>.
-    </p>
+  <p class:list={["site-footer__copy"]}>
+    {SITE_TITLE} &mdash; Built with <IconHeart class:list={["inline-block"]} />
+    and <a href="https://astro.build">Astro</a>.
+  </p>
 </footer>

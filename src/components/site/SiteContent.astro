@@ -1,10 +1,10 @@
 ---
 export interface Props {
-    class?: string | string[];
+  class?: string | string[];
 }
 const { class: className } = Astro.props;
 ---
 
 <main class:list={["site-content", className]}>
-    <slot />
+  <slot />
 </main>

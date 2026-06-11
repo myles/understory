@@ -7,22 +7,22 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "@/consts";
 import "@/styles/global.css";
 
 type Props = {
-    siteTitle?: string;
-    siteDescription?: string;
-    pageTitle?: string;
-    pageDescription?: string;
-    structuredData?: unknown;
-    hideHeader?: boolean;
-    hideFooter?: boolean;
+  siteTitle?: string;
+  siteDescription?: string;
+  pageTitle?: string;
+  pageDescription?: string;
+  structuredData?: unknown;
+  hideHeader?: boolean;
+  hideFooter?: boolean;
 };
 const {
-    siteTitle = SITE_TITLE,
-    siteDescription = SITE_DESCRIPTION,
-    pageTitle,
-    pageDescription,
-    structuredData,
-    hideHeader = false,
-    hideFooter = false,
+  siteTitle = SITE_TITLE,
+  siteDescription = SITE_DESCRIPTION,
+  pageTitle,
+  pageDescription,
+  structuredData,
+  hideHeader = false,
+  hideFooter = false,
 } = Astro.props;
 
 const title = pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle;
@@ -30,70 +30,74 @@ const description = pageDescription ?? siteDescription;
 
 // Remove trailing slash from pathname for canonical URL, if present.
 const canonicalPath = Astro.url.pathname.endsWith("/")
-    ? Astro.url.pathname.slice(0, -1)
-    : Astro.url.pathname;
+  ? Astro.url.pathname.slice(0, -1)
+  : Astro.url.pathname;
 const canonicalUrl = new URL(canonicalPath, Astro.site).toString();
 ---
 
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
 
-        <title>{title}</title>
-        {description && <meta name="description" content={description} />}
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
 
-        <!-- Open Graph -->
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={canonicalUrl} />
-        <meta property="og:title" content={title} />
-        {description && <meta property="og:description" content={description} />}
-        <meta property="og:site_name" content={siteTitle} />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:site_name" content={siteTitle} />
 
-        <!-- Twitter Card -->
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:url" content={canonicalUrl} />
-        <meta name="twitter:title" content={title} />
-        {description && <meta name="twitter:description" content={description} />}
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content={canonicalUrl} />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
 
-        <!-- IndieWeb — uncomment and fill in your own values -->
-        <!-- <link rel="authorization_endpoint" href="https://indieauth.com/auth" /> -->
-        <!-- <link rel="token_endpoint" href="https://tokens.indieauth.com/token" /> -->
-        <!-- <link rel="webmention" href="https://webmention.io/example.com/webmention" /> -->
-        <!-- <meta name="fediverse:creator" content="@username@instance.social" /> -->
-        <!-- <link rel="me" href="https://github.com/username" /> -->
+    <!-- IndieWeb — uncomment and fill in your own values -->
+    <!-- <link rel="authorization_endpoint" href="https://indieauth.com/auth" /> -->
+    <!-- <link rel="token_endpoint" href="https://tokens.indieauth.com/token" /> -->
+    <!-- <link rel="webmention" href="https://webmention.io/example.com/webmention" /> -->
+    <!-- <meta name="fediverse:creator" content="@username@instance.social" /> -->
+    <!-- <link rel="me" href="https://github.com/username" /> -->
 
-        <!-- JSON-LD Structured Data -->
-        {
-            structuredData && (
-                <script
-                    is:inline
-                    type="application/ld+json"
-                    set:html={JSON.stringify(structuredData)}
-                />
-            )
-        }
+    <!-- JSON-LD Structured Data -->
+    {
+      structuredData && (
+        <script
+          is:inline
+          type="application/ld+json"
+          set:html={JSON.stringify(structuredData)}
+        />
+      )
+    }
 
-        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="icon" href="/favicon.ico" sizes="32x32" />
-        <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-        <link rel="manifest" href="/site.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
-        <link rel="canonical" href={canonicalUrl} />
-        <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
-        <!-- Analytics — uncomment and replace YOUR_ID with your Tinylytics site ID -->
-        <!-- <script is:inline src="https://tinylytics.app/embed/YOUR_ID.js" defer></script> -->
-    </head>
-    <body>
-        <SiteContainer>
-            {!hideHeader && <SiteHeader title={siteTitle} description={siteDescription} />}
-            <SiteContent>
-                <slot />
-            </SiteContent>
-            {!hideFooter && <SiteFooter />}
-        </SiteContainer>
-    </body>
+    <!-- Analytics — uncomment and replace YOUR_ID with your Tinylytics site ID -->
+    <!-- <script is:inline src="https://tinylytics.app/embed/YOUR_ID.js" defer></script> -->
+  </head>
+  <body>
+    <SiteContainer>
+      {
+        !hideHeader && (
+          <SiteHeader title={siteTitle} description={siteDescription} />
+        )
+      }
+      <SiteContent>
+        <slot />
+      </SiteContent>
+      {!hideFooter && <SiteFooter />}
+    </SiteContainer>
+  </body>
 </html>
