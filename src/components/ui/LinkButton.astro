@@ -13,21 +13,24 @@ const {
   title,
   target,
 } = Astro.props as Props;
-
-const Element = disabled ? "span" : "a";
 ---
 
-<Element
-  href={href}
-  title={title}
-  target={target}
-  class:list={[
-    "link-button",
-    href && "link-button--linked",
-    disabled && "link-button--disabled",
-    className,
-  ]}
-  aria-hidden={disabled ? true : null}
->
-  <slot />
-</Element>
+{
+  href && !disabled ? (
+    <a
+      href={href}
+      title={title}
+      target={target}
+      class:list={["link-button", "link-button--linked", className]}
+    >
+      <slot />
+    </a>
+  ) : (
+    <span
+      class:list={["link-button", "link-button--disabled", className]}
+      aria-disabled="true"
+    >
+      <slot />
+    </span>
+  )
+}

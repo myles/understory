@@ -46,4 +46,4 @@ build:
 
 .PHONY: ci
 ci: lint test check build
-	say "All checks passed for CI!"
+	echo "All checks passed for CI!"
