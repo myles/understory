@@ -1,0 +1,27 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+export interface Props extends Omit<HTMLAttributes<"a">, "class" | "href"> {
+    href?: string;
+    disabled?: boolean;
+    class?: string | string[];
+}
+const { href, disabled, class: className, title, target } = Astro.props as Props;
+
+const Element = disabled ? "span" : "a";
+---
+
+<Element
+    href={href}
+    title={title}
+    target={target}
+    class:list={[
+        "link-button",
+        href && "link-button--linked",
+        disabled && "link-button--disabled",
+        className,
+    ]}
+    aria-hidden={disabled ? true : null}
+>
+    <slot />
+</Element>

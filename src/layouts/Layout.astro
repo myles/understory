@@ -1,4 +1,8 @@
 ---
+import SiteContainer from "@/components/site/SiteContainer.astro";
+import SiteContent from "@/components/site/SiteContent.astro";
+import SiteFooter from "@/components/site/SiteFooter.astro";
+import SiteHeader from "@/components/site/SiteHeader.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "@/consts";
 import "@/styles/global.css";
 
@@ -8,6 +12,8 @@ type Props = {
     pageTitle?: string;
     pageDescription?: string;
     structuredData?: unknown;
+    hideHeader?: boolean;
+    hideFooter?: boolean;
 };
 const {
     siteTitle = SITE_TITLE,
@@ -15,6 +21,8 @@ const {
     pageTitle,
     pageDescription,
     structuredData,
+    hideHeader = false,
+    hideFooter = false,
 } = Astro.props;
 
 const title = pageTitle ? `${pageTitle} | ${siteTitle}` : siteTitle;
@@ -80,6 +88,12 @@ const canonicalUrl = new URL(canonicalPath, Astro.site).toString();
         <!-- <script is:inline src="https://tinylytics.app/embed/YOUR_ID.js" defer></script> -->
     </head>
     <body>
-        <slot />
+        <SiteContainer>
+            {!hideHeader && <SiteHeader title={siteTitle} description={siteDescription} />}
+            <SiteContent>
+                <slot />
+            </SiteContent>
+            {!hideFooter && <SiteFooter />}
+        </SiteContainer>
     </body>
 </html>

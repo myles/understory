@@ -33,7 +33,7 @@ The registry's `Layout.astro` is the reference. Add to understory's `src/layouts
 - [x] **`<link rel="sitemap" href="/sitemap-index.xml">`**
 - [x] **`<link rel="apple-touch-icon" href="/apple-touch-icon.png">`** — done in Batch 1
 - [x] **`structuredData` prop** — render as `<script type="application/ld+json">` in `<head>`; add `schema-dts` to devDeps for types
-- [ ] **`hideHeader` / `hideFooter` props** — deferred to Batch 5 (no site header/footer components exist yet)
+- [x] **`hideHeader` / `hideFooter` props** — wired up in Batch 5 alongside site components
 - [x] **IndieAuth links** — `authorization_endpoint` + `token_endpoint` (commented-out stubs)
 - [x] **`fediverse:creator` meta** — commented-out stub
 - [x] **`<link rel="webmention">` stub** — commented-out stub
@@ -47,10 +47,10 @@ The registry's `Layout.astro` is the reference. Add to understory's `src/layouts
 
 ## Batch 5 — Component scaffolding
 
-- [ ] **`src/components/site/`** — SiteContainer, SiteHeader, SiteContent, SiteFooter pattern; used by arcana and registry; separates site chrome from page layout
-- [ ] **`src/components/ui/Pagination.astro`** — appears in 4 of 5 projects; generic enough to template
-- [ ] **`src/components/icons/`** — establish the SVG icon component pattern (even if empty); arcana, registry, grimoire, myles-garden all use it
-- [ ] **`src/lib/urls.ts`** — URL builder helper stub; used by arcana, registry, clippings
+- [x] **`src/components/site/`** — SiteContainer, SiteHeader, SiteContent, SiteFooter pattern; used by arcana and registry; separates site chrome from page layout
+- [x] **`src/components/ui/Pagination.astro`** — appears in 4 of 5 projects; generic enough to template
+- [x] **`src/components/icons/`** — establish the SVG icon component pattern (even if empty); arcana, registry, grimoire, myles-garden all use it
+- [x] **`src/lib/urls.ts`** — URL builder helper stub; used by arcana, registry, clippings
 
 ## Packages summary
 
