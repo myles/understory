@@ -44,27 +44,21 @@ const canonicalUrl = new URL(canonicalPath, Astro.site).toString();
     <title>{title}</title>
     {description && <meta name="description" content={description} />}
 
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={canonicalUrl} />
-    <meta property="og:title" content={title} />
-    {description && <meta property="og:description" content={description} />}
-    <meta property="og:site_name" content={siteTitle} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:url" content={canonicalUrl} />
-    <meta name="twitter:title" content={title} />
-    {description && <meta name="twitter:description" content={description} />}
+    {
+      /**
+       * IndieWeb — uncomment and fill in your own values
+       * <link rel="authorization_endpoint" href="https://indieauth.com/auth" />
+       * <link rel="token_endpoint" href="https://tokens.indieauth.com/token" />
+       * <link rel="webmention" href="https://webmention.io/example.com/webmention" />
+       * <meta name="fediverse:creator" content="@username@instance.social" />
+       * <link rel="me" href="https://github.com/username" />
+       */
+    }
 
-    <!-- IndieWeb — uncomment and fill in your own values -->
-    <!-- <link rel="authorization_endpoint" href="https://indieauth.com/auth" /> -->
-    <!-- <link rel="token_endpoint" href="https://tokens.indieauth.com/token" /> -->
-    <!-- <link rel="webmention" href="https://webmention.io/example.com/webmention" /> -->
-    <!-- <meta name="fediverse:creator" content="@username@instance.social" /> -->
-    <!-- <link rel="me" href="https://github.com/username" /> -->
-
-    <!-- JSON-LD Structured Data -->
+    {/* JSON-LD Structured Data */}
     {
       structuredData && (
         <script
@@ -75,17 +69,26 @@ const canonicalUrl = new URL(canonicalPath, Astro.site).toString();
       )
     }
 
-    <!-- Twitter Card -->
+    {/* Open Graph */}
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:site_name" content={siteTitle} />
+
+    {/* Twitter Card */}
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:url" content={canonicalUrl} />
     <meta name="twitter:title" content={title} />
     {description && <meta name="twitter:description" content={description} />}
 
-    <link rel="canonical" href={canonicalUrl} />
-    <link rel="sitemap" href="/sitemap-index.xml" />
-
-    <!-- Analytics — uncomment and replace YOUR_ID with your Tinylytics site ID -->
-    <!-- <script is:inline src="https://tinylytics.app/embed/YOUR_ID.js" defer></script> -->
+    {
+      /**
+       * Analytics — uncomment and replace YOUR_ID with your Tinylytics site ID
+       *
+       * <script is:inline src="https://tinylytics.app/embed/YOUR_ID.js" defer></script>
+       */
+    }
   </head>
   <body>
     <SiteContainer>
