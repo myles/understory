@@ -6,29 +6,23 @@ export interface Props extends Omit<HTMLAttributes<"a">, "class" | "href"> {
   disabled?: boolean;
   class?: string | string[];
 }
-const {
-  href,
-  disabled,
-  class: className,
-  title,
-  target,
-} = Astro.props as Props;
+const { href, disabled, class: className, ...rest } = Astro.props as Props;
 ---
 
 {
   href && !disabled ? (
     <a
       href={href}
-      title={title}
-      target={target}
       class:list={["link-button", "link-button--linked", className]}
+      {...rest}
     >
       <slot />
     </a>
   ) : (
     <span
       class:list={["link-button", "link-button--disabled", className]}
-      aria-disabled="true"
+      aria-disabled={disabled}
+      {...rest}
     >
       <slot />
     </span>

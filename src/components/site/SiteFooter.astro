@@ -10,7 +10,11 @@ const { class: className } = Astro.props;
 
 <footer class:list={["site-footer", className]}>
   <p class:list={["site-footer__copy"]}>
-    {SITE_TITLE} &mdash; Built with <IconHeart class:list={["inline-block"]} />
+    {SITE_TITLE} &mdash; Built with <IconHeart
+      aria-label="love"
+      focusable="false"
+      class:list={["inline-block"]}
+    />
     and <a href="https://astro.build">Astro</a>.
   </p>
 </footer>
