@@ -1,6 +1,6 @@
 {
   "name": "understory",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "My opinionated Astro starter. Pre-configured with the packages I reach for on every project.",
   "keywords": [
     "astro",
@@ -14,7 +14,7 @@
     "url": "https://github.com/myles/understory.git"
   },
   "license": "MIT",
-  "author": "Myles Braithwaite <me@myles.garden> (https://myles.garden)",
+  "author": "Myles Braithwaite <myles@myles.garden> (https://myles.garden)",
   "type": "module",
   "scripts": {
     "astro": "astro",
