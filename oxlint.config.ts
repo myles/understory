@@ -1,5 +1,5 @@
-import { defineConfig } from "oxlint";
 import mylesOxlintConfig from "@mylesb/oxlint-config";
+import { defineConfig } from "oxlint";
 
 export default defineConfig({
   extends: [mylesOxlintConfig],
