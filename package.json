@@ -26,7 +26,7 @@
     "lint": "npm run oxlint",
     "lint:fix": "npm run oxlint:fix",
     "oxlint": "oxlint . -c",
-    "oxlint:fix": "oxlint . --write",
+    "oxlint:fix": "oxlint . --fix",
     "prettier": "prettier . -c",
     "prettier:write": "prettier . --write",
     "preview": "astro preview"
