@@ -1,1 +1,4 @@
 @import "tailwindcss";
+
+/* Design tokens and prose utilities */
+@import "@myles-garden/styles";

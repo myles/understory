@@ -1,6 +1,6 @@
 ---
-import { SITE_DESCRIPTION, SITE_TITLE } from "@/consts";
-import "@/styles/global.css";
+import config from "@/config";
+import "@/styles/global.css"; // oxlint-disable-line import/no-unassigned-import
 
 type Props = {
   siteTitle?: string;
@@ -10,8 +10,8 @@ type Props = {
   pageDescription?: string;
 };
 const {
-  siteTitle = SITE_TITLE,
-  siteDescription = SITE_DESCRIPTION,
+  siteTitle = config.SITE_TITLE,
+  siteDescription = config.SITE_DESCRIPTION,
   pageTitle,
   pageDescription,
 } = Astro.props;
