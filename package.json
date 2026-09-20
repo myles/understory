@@ -35,12 +35,14 @@
     "@myles-garden/styles": "^1.0.1",
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.3.2",
+    "dotenv": "^18.0.1",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
     "@mylesb/oxlint-config": "^1.0.0",
     "@mylesb/prettier-config": "^1.1.0",
+    "@types/node": "^26.6.2",
     "oxlint": "^1.82.0",
     "prettier": "^3.9.6",
     "prettier-plugin-astro": "^1.0.0",
