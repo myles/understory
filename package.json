@@ -25,7 +25,7 @@
     "format:fix": "npm run prettier:write",
     "lint": "npm run oxlint",
     "lint:fix": "npm run oxlint:fix",
-    "oxlint": "oxlint . -c",
+    "oxlint": "oxlint .",
     "oxlint:fix": "oxlint . --fix",
     "prettier": "prettier . -c",
     "prettier:write": "prettier . --write",
