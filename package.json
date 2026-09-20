@@ -1,6 +1,6 @@
 {
   "name": "understory",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "My opinionated Astro starter. Pre-configured with the packages I reach for on every project.",
   "keywords": [
     "astro",
