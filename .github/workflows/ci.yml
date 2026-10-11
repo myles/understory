@@ -1,0 +1,166 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - id: checkout
+        name: 📥 Checkout code
+        uses: actions/checkout@v7
+
+      - id: setup-node
+        name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: "package.json"
+          cache: "npm"
+
+      - id: install-dependencies
+        name: 📦 Install dependencies
+        run: npm ci
+
+      # The template ships without a test runner; skip the test steps until
+      # package.json defines a "test" script.
+      - id: has-test-script
+        name: 🔍 Check for a test script
+        run: |
+          has_test=$(node -p "Boolean(require('./package.json').scripts?.test)")
+          echo "has-test=$has_test" >> "$GITHUB_OUTPUT"
+
+      - id: test
+        name: 🧪 Run tests
+        if: steps.has-test-script.outputs.has-test == 'true'
+        run: npm run test -- --coverage --reporter=junit --outputFile=test-report.junit.xml
+
+      - id: test-upload-coverage
+        name: 📊 Upload coverage report
+        if: always() && steps.has-test-script.outputs.has-test == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: coverage-report
+          path: coverage
+
+      - id: test-upload-results
+        name: 📊 Upload test results
+        if: always() && steps.has-test-script.outputs.has-test == 'true'
+        uses: actions/upload-artifact@v7
+        with:
+          name: test-report
+          path: test-report.junit.xml
+
+  check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - id: checkout
+        name: 📥 Checkout code
+        uses: actions/checkout@v7
+        with:
+          lfs: true
+
+      - id: setup-node
+        name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: "package.json"
+          cache: "npm"
+
+      - id: install-dependencies
+        name: 📦 Install dependencies
+        run: npm ci
+
+      - id: astro-check
+        name: ♍️ Run Astro check
+        run: npm run check
+
+  lint:
+    runs-on: ubuntu-latest
+
+    outputs:
+      format-outcome: ${{ steps.format-check.outcome }}
+      lint-outcome: ${{ steps.lint-check.outcome }}
+
+    steps:
+      - id: checkout
+        name: 📥 Checkout code
+        uses: actions/checkout@v7
+
+      - id: setup-node
+        name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: "package.json"
+          cache: "npm"
+
+      - id: install-dependencies
+        name: 📦 Install dependencies
+        run: npm ci
+
+      - id: format-check
+        name: 💅 Run format check
+        continue-on-error: true
+        run: npm run format
+
+      - id: lint-check
+        name: 🚨 Run lint check
+        continue-on-error: true
+        run: npm run lint
+
+      - id: lint-status
+        name: ❗ Fail if lint checks failed
+        if: steps.format-check.outcome == 'failure' || steps.lint-check.outcome == 'failure'
+        run: exit 1
+
+  lint-fix:
+    needs: lint
+    if: |
+      always() &&
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      (needs.lint.outputs.format-outcome == 'failure' || needs.lint.outputs.lint-outcome == 'failure')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - id: checkout
+        name: 📥 Checkout code
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+
+      - id: setup-node
+        name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: "package.json"
+          cache: "npm"
+
+      - id: install-dependencies
+        name: 📦 Install dependencies
+        run: npm ci
+
+      - id: lint-fix
+        name: 🚨 Run lint --fix
+        run: npm run lint:fix
+
+      - id: format-fix
+        name: 💅 Run format --write
+        run: npm run format:fix
+
+      - id: commit
+        name: 📝 Commit fixes
+        uses: stefanzweifel/git-auto-commit-action@v7
+        with:
+          commit_message: "chore(lint): 🚨 auto-fixes lint issues"

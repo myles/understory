@@ -16,7 +16,7 @@ Understory is an Astro starter template, consumed via `npm create astro@latest -
 | Lint / autofix          | `npm run lint` / `npm run lint:fix`       |
 | Format check / write    | `npm run format` / `npm run format:write` |
 
-Before calling work done, run `npm run check`, `npm run lint`, `npm run format` and `npm run build`, plus tests once Vitest is set up. Nothing enforces this — there's no CI or pre-commit hook.
+Before calling work done, run `npm run check`, `npm run lint`, `npm run format` and `npm run build`, plus tests once Vitest is set up. CI (`.github/workflows/ci.yml`) runs all of these except the build, and skips tests until a `test` script exists.
 
 ## Testing
 
