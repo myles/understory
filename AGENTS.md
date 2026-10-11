@@ -8,13 +8,13 @@ Understory is an Astro starter template, consumed via `npm create astro@latest -
 
 ## Commands
 
-| Task | Command |
-| --- | --- |
-| Dev server (port 4321) | `npm run dev` |
-| Build to `dist/` | `npm run build` |
-| Type-check (Astro + TS) | `npm run check` |
-| Lint / autofix | `npm run lint` / `npm run lint:fix` |
-| Format check / write | `npm run format` / `npm run format:write` |
+| Task                    | Command                                   |
+| ----------------------- | ----------------------------------------- |
+| Dev server (port 4321)  | `npm run dev`                             |
+| Build to `dist/`        | `npm run build`                           |
+| Type-check (Astro + TS) | `npm run check`                           |
+| Lint / autofix          | `npm run lint` / `npm run lint:fix`       |
+| Format check / write    | `npm run format` / `npm run format:write` |
 
 Before calling work done, run `npm run check`, `npm run lint`, `npm run format` and `npm run build`, plus tests once Vitest is set up. Nothing enforces this — there's no CI or pre-commit hook.
 

@@ -29,8 +29,8 @@
     "oxfmt:write": "oxfmt . --write",
     "oxlint": "oxlint .",
     "oxlint:fix": "oxlint . --fix",
-    "prettier": "prettier --check .",
-    "prettier:write": "prettier --write .",
+    "prettier": "prettier --check \"**/*.astro\"",
+    "prettier:write": "prettier --write \"**/*.astro\"",
     "preview": "astro preview"
   },
   "dependencies": {
