@@ -38,7 +38,7 @@
     "@myles-garden/utils": "^1.2.0",
     "@mylesb/oxfmt-config": "^1.0.0",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.3.8",
+    "astro": "^7.4.7",
     "dotenv": "^18.0.7",
     "oxfmt": "^0.72.0",
     "tailwindcss": "^4.3.3"
