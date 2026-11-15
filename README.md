@@ -24,7 +24,7 @@ npm create astro@latest -- --template myles/understory
 
 ### Making it yours
 
-The template's name lives on in a few places: the `UNDERSTORY_` env prefix, the default site title, the package metadata and this README. `AGENTS.md` lists every step, so a coding agent can rename the lot to match your package name.
+The template's name lives on in a few places: the default site title, the package metadata and this README. `AGENTS.md` lists every step, so a coding agent can rename the lot to match your package name.
 
 ### Fonts
 
@@ -40,11 +40,11 @@ Then `@import` each one in `src/styles/global.css`, between `tailwindcss` and `@
 
 Site settings come from environment variables, read at build time:
 
-| Variable                      | Default                 | Used for                          |
-| ----------------------------- | ----------------------- | --------------------------------- |
-| `UNDERSTORY_SITE_URL`         | `http://localhost:4321` | Astro's `site` and canonical URLs |
-| `UNDERSTORY_SITE_TITLE`       | `understory`            | Default page title                |
-| `UNDERSTORY_SITE_DESCRIPTION` | none                    | Default meta description          |
+| Variable           | Default                 | Used for                          |
+| ------------------ | ----------------------- | --------------------------------- |
+| `SITE_URL`         | `http://localhost:4321` | Astro's `site` and canonical URLs |
+| `SITE_TITLE`       | `understory`            | Default page title                |
+| `SITE_DESCRIPTION` | none                    | Default meta description          |
 
 Everything here ends up in the built HTML, so don't put secrets in them.
 
