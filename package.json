@@ -34,12 +34,12 @@
     "preview": "astro preview"
   },
   "dependencies": {
-    "@myles-garden/styles": "^1.0.1",
-    "@myles-garden/utils": "^1.2.0",
-    "@tailwindcss/vite": "^4.3.3",
+    "@myles-garden/styles": "^1.1.0",
+    "@myles-garden/utils": "^1.4.0",
+    "@tailwindcss/vite": "^4.3.5",
     "astro": "^7.4.12",
-    "dotenv": "^18.0.7",
-    "tailwindcss": "^4.3.3"
+    "dotenv": "^18.0.10",
+    "tailwindcss": "^4.3.5"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
@@ -47,10 +47,10 @@
     "@mylesb/oxlint-config": "^1.0.0",
     "@mylesb/prettier-config": "^1.1.0",
     "@types/node": "^22.20.5",
-    "oxfmt": "^0.72.0",
-    "oxlint": "^1.87.0",
-    "prettier": "^3.9.10",
-    "prettier-plugin-astro": "^1.1.1",
+    "oxfmt": "^0.78.0",
+    "oxlint": "^1.93.0",
+    "prettier": "^3.10.1",
+    "prettier-plugin-astro": "^1.1.2",
     "prettier-plugin-astro-organize-imports": "^0.4.14",
     "prettier-plugin-tailwindcss": "^0.8.1",
     "typescript": "^6.0.3"
