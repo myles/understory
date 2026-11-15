@@ -157,7 +157,7 @@ jobs:
 
       - id: format-fix
         name: 💅 Run format --write
-        run: npm run format:fix
+        run: npm run format:write
 
       - id: commit
         name: 📝 Commit fixes
