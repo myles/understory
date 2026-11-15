@@ -4,7 +4,7 @@ This file provides guidance to coding agents working with code in this repositor
 
 ## What this is
 
-Understory is an Astro starter template, consumed via `npm create astro@latest -- --template myles/understory`. Changes here ship to every project created from it, so keep the baseline minimal and opinionated rather than feature-rich. Node `>=22.12.0`.
+Understory is an Astro starter template, consumed via `npm create astro@latest -- --template myles/understory`. Changes here ship to every project created from it, so keep the baseline minimal and opinionated rather than feature-rich. Node `>=22.23.5`.
 
 ## Projects created from this template
 
@@ -53,7 +53,7 @@ Prefer the `@myles-garden/*` packages over writing local code or installing alte
 
 ### Utilities
 
-Before writing a helper or installing a package, check `@myles-garden/utils` (see its README in `node_modules/@myles-garden/utils`). It covers display formatting for lists, URLs, ISBNs and coordinates; pluralisation; title case; sort keys; time-zone-aware date formatting and maths (defaults to `America/Toronto`); and zod schemas for partial dates. Its entry points are the root plus `/array`, `/date`, `/regex`, `/text` and `/zod`.
+Before writing a helper or installing a package, check `@myles-garden/utils` (see its README in `node_modules/@myles-garden/utils`). It covers display formatting for lists, URLs, ISBNs and coordinates; pluralisation; title case; sort keys; registry identifiers such as `MB-100-1`; time-zone-aware date formatting and maths (defaults to `America/Toronto`); and zod schemas for partial dates and identifiers. Its entry points are the root plus `/array`, `/date`, `/identifier`, `/regex`, `/text` and `/zod`.
 
 `/date` and `/zod` need the optional peers `date-fns`, `@date-fns/tz` and `zod`. Install those rather than an alternative date or validation library.
 
@@ -104,7 +104,7 @@ Values are read at build time and the site is static, so anything a page renders
 
 Use [Conventional Commits](https://www.conventionalcommits.org): `type(scope): summary`, with a lowercase, imperative summary and no trailing period.
 
-- **Types in use:** `feat`, `fix`, `chore`, `build`.
+- **Types in use:** `feat`, `fix`, `chore`, `build`, `docs`, `ci`.
 - **Scopes in use:** `deps`, `config`, `styles`, `lint`, `docs`, `release`. The scope is optional.
 - **Releases:** `build(release): bump version to X.Y.Z`.
 
